@@ -4,7 +4,7 @@ const config = require('./app/config/config.database');
 const sequelize = require('./app/db');
 const app = express();
 const routes = require('./app/routes');
-const PORT = 1020;
+const PORT = 3000;
 
 let server;
 const env = process.env.NODE_ENV || 'development';
@@ -18,8 +18,8 @@ client.connect().then( ()=> {
     console.log('conectado a la base de datos postgres');
     sequelize.authenticate().then( ()=>{
         console.log('sequelize init');
-        server = app.listen(config.port, ()=> {
-            console.log(`Server init PORT-> ${config.port}`);
+        server = app.listen(PORT, ()=> {
+            console.log(`Server init PORT-> ${PORT}`);
         });
     }).catch( (error)=> {
         console.log(`Error al conectar a la base de datos postgres ${error}`);
