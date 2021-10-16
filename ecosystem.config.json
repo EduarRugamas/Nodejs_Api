@@ -1,15 +1,13 @@
 {
-  "app": [
-    {
-      "name": "app",
-      "script": "index.js",
-      "instances": 1,
-      "autorestart": true,
-      "watch": false,
-      "time": true,
-      "env": {
-        "NODE_ENV": "production"
-      }
+  "apps": [{
+    "name": "app",
+    "script": "./index.js",
+    "instances": 2,
+    "env": {
+      "NODE_ENV" : "develoment"
+    },
+    "env_production": {
+      "NODE_ENV": "production"
     }
-  ]
+  }]
 }
