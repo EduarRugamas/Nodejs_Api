@@ -2,9 +2,9 @@ const dotenv = require('dotenv');
 const path = require('path');
 const Joi = require('@hapi/joi');
 
-dotenv.config({path:path.join(__dirname, '../../.env')});
+dotenv.config({ path: path.join(__dirname, '../../.env') } );
 
-const envVarSchema = Joi.object()
+const envVarsSchema = Joi.object()
         .keys({
           NODE_ENV: Joi.string().valid('production','development').required(),
           PORT: Joi.number().default(5000),
@@ -12,7 +12,7 @@ const envVarSchema = Joi.object()
 
         }).unknown()
 
-const { value: envVar, error } = envVarSchema.prefs({errors: {label: 'key'}}).validate(process.env);
+const { value: envVars, error } = envVarsSchema.prefs( {errors: {label: 'key'}}).validate(process.env);
 
 if (error){
     console.log(`\`Configuracion invalida error ->: ${error.message}\``);
@@ -20,14 +20,14 @@ if (error){
 }
 
 module.exports = {
-    env: envVar.NODE_ENV,
-    port: envVar.PORT,
+    env: envVars.NODE_ENV,
+    port: envVars.PORT,
     development: {
-        url: envVar.DATABASE_URL,
+        url: envVars.DATABASE_URL,
         dialect: 'postgresql'
     },
     production: {
-        url: envVar.DATABASE_URL,
+        url: envVars.DATABASE_URL,
         dialect: 'postgresql',
     },
     dbPool: {
