@@ -64,3 +64,6 @@ coverage
 
 # Package-lock.json
 package-lock.json
+
+#omitir config.json
+config.json
