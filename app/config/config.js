@@ -29,6 +29,9 @@ module.exports = {
     production: {
         url: envVars.DATABASE_URL,
         dialect: 'postgresql',
+        ssl: {
+            rejectUnauthorized: false
+        }
     },
     dbPool: {
         production: { idle: 10000, acquire: 60000, evict: 1000 },
