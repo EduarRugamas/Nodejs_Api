@@ -2,7 +2,7 @@
   "apps": [{
     "name": "app",
     "script": "./index.js",
-    "instances": 2,
+    "instances": 1,
     "env": {
       "NODE_ENV" : "develoment"
     },

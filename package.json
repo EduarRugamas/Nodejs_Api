@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "pm2 start ecosystem.config.json --env production",
+    "start": "babel-node index.js",
     "dev": "nodemon index.js"
   },
   "keywords": [
@@ -15,6 +15,10 @@
   "author": "EduarDev",
   "license": "ISC",
   "dependencies": {
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.8",
+    "@babel/node": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
     "@hapi/joi": "^17.1.1",
     "bcryptjs": "^2.4.3",
     "compression": "^1.7.4",
