@@ -1,10 +1,15 @@
 {
   "development": {
-    "username": "postgres",
-    "password": "pgrootdev",
-    "database": "foods",
-    "host": "127.0.0.1",
-    "dialect": "postgresql"
+    "username": "okkhkherhqnkgc",
+    "password": "8261a3d96f2fcd9790fa078b3c53ee717249bdab90f02025312785aa03122765",
+    "database": "df61llhe1nv500",
+    "host": "ec2-23-22-243-103.compute-1.amazonaws.com",
+    "dialect": "postgresql",
+    "dialectOptions": {
+      "ssl": {
+        "rejectUnauthorized": false
+      }
+    }
   },
   "test": {
     "username": "root",
