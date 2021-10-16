@@ -7,7 +7,7 @@ dotenv.config({path:path.join(__dirname, '../../.env')});
 const envVarSchema = Joi.object()
         .keys({
           NODE_ENV: Joi.string().valid('production','development').required(),
-          PORT: Joi.number().default(1020),
+          PORT: Joi.number().default(5000),
           DATABASE_URL: Joi.string().required().description('database url'),
 
         }).unknown()
@@ -25,6 +25,10 @@ module.exports = {
     development: {
         url: envVar.DATABASE_URL,
         dialect: 'postgresql'
+    },
+    production: {
+        url: envVar.DATABASE_URL,
+        dialect: 'postgresql',
     },
     dbPool: {
         development: {idle:10000, acquire:60000, evict:1000}
