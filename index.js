@@ -1,6 +1,6 @@
 const express = require('express');
 const {Client} = require('pg');
-const config = require('./app/config/config.database');
+const config = require('./app/config/config');
 const sequelize = require('./app/db');
 const cors = require('cors');
 const app = express();
