@@ -10,12 +10,12 @@ const envVarsSchema = Joi.object()
           PORT: Joi.number().default(5000),
           DATABASE_URL: Joi.string().required().description('database url'),
 
-        }).unknown()
+        }).unknown();
 
-const { value: envVars, error } = envVarsSchema.prefs( {errors: {label: 'key'}}).validate(process.env);
+const { value: envVars, error } = envVarsSchema.prefs({ errors: { label: 'key' } }).validate(process.env);
 
 if (error){
-    console.log(`\`Configuracion invalida error ->: ${error.message}\``);
+    console.log(`Configuracion invalida error ->: ${error.message}`);
     throw new Error(`Configuracion invalida error ->: ${error.message}`);
 }
 
@@ -31,6 +31,7 @@ module.exports = {
         dialect: 'postgresql',
     },
     dbPool: {
+        production: { idle: 10000, acquire: 60000, evict: 1000 },
         development: {idle:10000, acquire:60000, evict:1000}
     }
 };

@@ -5,14 +5,14 @@ const sequelize = require('./app/db');
 const cors = require('cors');
 const app = express();
 const routes = require('./app/routes');
-const PORT = 3000;
+
 
 let server;
 const env = process.env.NODE_ENV || 'development';
-const database_url = config[env].url;
+const databaseUrl = config[env].url;
 
 const client = new Client({
-    connectionString: database_url
+    connectionString: databaseUrl
 });
 
 client.connect().then( ()=> {
@@ -34,6 +34,10 @@ app.use(cors());
 app.options('*', cors());
 
 app.use('/v1', routes);
+
+if (config.env === 'production'){
+    app.use('/v1', routes);
+}
 
 // app.listen(PORT, (err) => {
 //     if (err) {
