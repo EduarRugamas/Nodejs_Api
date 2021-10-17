@@ -1,6 +1,7 @@
 const httpStatus = require('http-status');
 const _ = require('lodash');
 const sequelize = require('../db');
+const isEmpty = require('lodash.isempty');
 
 const { Comidas } = require('../models');
 
@@ -24,7 +25,8 @@ const createFood = async (foodBody) => {
     let foodData;
 
     try {
-        foodData = await Comidas.create(foodBody);
+
+            foodData = await Comidas.create(foodBody);
 
         return foodData;
     }catch (error) {
